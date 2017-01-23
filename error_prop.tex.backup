@@ -1,0 +1,126 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+
+
+%opening
+\title{Cheat Sheet - Uncertainty calculation}
+\author{Sebastian Dick}
+\begin{document}
+\maketitle
+
+\section{Definitions}
+
+Let us say you measure the length of your table to be
+
+\[
+l = 50.5 \pm 0.1 \text{ cm.}
+\]
+
+
+\begin{itemize}
+ \item The \textbf{best value} $X$ is the value you measured and given in our example as $50.5 \text{ cm}$
+ \item The \textbf{absolute error} $\Delta X$ in our example is $ \Delta l = 0.1 \text{ cm} $. Note that the absolute value has the same units as the best value. 
+ If the best value is scaled by a factor of $a$ then also the absolute error is multiplied by this factor
+ \[
+  \Delta(aX)= a \Delta X \\
+ \]
+ \item The \textbf{relative error} is given by the absolute error divided by the best value and has therefore no units.
+ \[ 
+  \Delta_{rel}X = \frac{\Delta X}{X}
+ \]
+ In our example $\Delta_{rel}l =\Delta l / l = 50.5 \text{ cm} / 0.1 \text{ cm } =  0.002$ 
+
+\end{itemize}
+
+\section{Random error}
+Imagine you measure the length of the table \textbf{multiple times}. Your data set (measured lengths) is given by
+
+\begin{center}
+\begin{tabular}{|c|}
+ \hline
+ Length / cm \\
+ \hline
+ $50.1$  \\ 
+ $50.2$  \\ 
+ $50.0$  \\ 
+ $50.5$  \\
+ \hline
+ 
+\end{tabular}
+\end{center}
+Let $x_i$ denote the different measurement outcomes ($i$ is just an index to label the measurements) and N the number of measurements.  
+\begin{itemize} 
+ \item The \textbf{mean} or \textbf{average} of the data set can be calculated as 
+ \[ 
+  \overline{x} = \frac{\sum_i x_i}{ N}.
+ \]
+ or in our case
+ \[
+   \overline{l} = \frac{50.1+50.2+50.0+50.5}{4} \text{ cm} = 50.2 \text{ cm}
+ \]
+ \textit{TIP: In Excel you can use the AVERAGE(data) function}
+ \item The \textbf{standard error} or the error of the average is then given by
+ \[
+  \Delta \overline{x} = \sqrt{ \frac{\sum_i (x_i - \overline{x})^2}{N(N+1)}}
+ \]
+ for our example
+ \[
+  \Delta \overline{l} = \sqrt{\frac{(50.1-50.2)^2 + (50.2 - 50.2)^2 + ... + (50.5-50.2)^2}{20}} \text{ cm} = 0.11 \text{ cm}
+ \]
+ The standard error gives you information about how likely it is that your measured \textbf{mean value} is close to the \textbf{true value}. 
+ For example, in our experiment the true length of the table is between $50.1$ cm and $50.3$ cm (i.e. the mean value $\pm$ the standard error)
+ with a probability/certainty of about $68 \%$
+
+ \textit{TIP: In Excel, use STDEV(data)/SQRT(COUNT(data))}
+\end{itemize}
+
+\section{Error propagation}
+
+Imagine you measure the width of the table to be 
+\[
+ w = 30.2 \pm 0.2 \text{ cm}
+\]
+and you want to calculate the circumference and area of the table. How does one combine the two uncertainties. Answer: you use the 
+\textbf{geometric mean}, which means ``add the squared values and then take the square root''. 
+\begin{itemize} 
+ \item \textbf{Addition/Subtraction}
+ 
+ Adding/Subtracting the measured values $X$ and $Y$, the combined/propagated error 
+ is given by the geometric mean of the \textbf{absolute errors} $\Delta X$ and $\Delta Y$.
+ 
+ \begin{align*}
+  Z &= X+Y \\
+  \Delta Z &= \sqrt{(\Delta X)^2 + (\Delta Y)^2} \\  
+ \end{align*}
+ 
+ So in our example, the circumference of the table and its error is given by
+ \begin{align*}
+  c &= (30.2 + 50.5) \text{ cm} = 80.7 \text{ cm} \\
+  \Delta c &= \sqrt{(0.1)^2+(0.2)^2} \text{ cm}= 0.2 \text{ cm}
+ \end{align*}
+
+  \item \textbf{Multiplication/Division}
+  
+  Multiplying/Dividing $X$ and $Y$, one needs to calculate the geometric mean of the \textbf{relative errors} to obtain the 
+  combined relative error
+  
+  \begin{align*}
+  Z &= X \cdot Y \\
+  \Delta_{rel} Z &= \frac{\Delta Z}{Z} = \sqrt{\left(\frac{\Delta X}{X}\right)^2 + \left(\frac{\Delta Y}{Y}\right)^2} \\  
+  \Delta Z &= (\Delta_{rel}Z) \cdot Z
+  \end{align*}
+  
+  Thus, the area of the table and its relative and absolute error are given by
+  
+  \begin{align*}
+  A =  30.2 \text{ cm}  \cdot 50.5 \text{ cm} = 1525.1 \text{ cm}^2 
+  \end{align*}
+
+  
+  
+\end{itemize}
+
+
+\end{document}
