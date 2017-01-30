@@ -82,7 +82,7 @@ Imagine you measure the width of the table to be
 \[
  w = 30.2 \pm 0.2 \text{ cm}
 \]
-and you want to calculate the circumference and area of the table. How does one combine the two uncertainties. Answer: you use the 
+and you want to calculate the perimeter and area of the table. How does one combine the two uncertainties. Answer: you use the 
 \textbf{geometric mean}, which means ``add the squared values and then take the square root''. 
 \begin{itemize} 
  \item \textbf{Addition/Subtraction}
@@ -95,7 +95,7 @@ and you want to calculate the circumference and area of the table. How does one 
   \Delta Z &= \sqrt{(\Delta X)^2 + (\Delta Y)^2} \\  
  \end{align*}
  
- So in our example, the circumference of the table and its error is given by
+ So in our example, half the perimeter of the table and its error is given by
  \begin{align*}
   c &= (30.2 + 50.5) \text{ cm} = 80.7 \text{ cm} \\
   \Delta c &= \sqrt{(0.1)^2+(0.2)^2} \text{ cm}= 0.2 \text{ cm}
@@ -115,8 +115,26 @@ and you want to calculate the circumference and area of the table. How does one 
   Thus, the area of the table and its relative and absolute error are given by
   
   \begin{align*}
-  A =  30.2 \text{ cm}  \cdot 50.5 \text{ cm} = 1525.1 \text{ cm}^2 
+  A &=  30.2 \text{ cm}  \cdot 50.5 \text{ cm} = 1525.1 \text{ cm}^2 \\
+  \Delta_{rel} A &= \sqrt{\left(\frac{0.2}{30.2}\right)^2 + \left(\frac{0.1}{50.5}\right)^2} = 0.0069 \\ 
+  \Delta A &= 0.0069 \cdot 1525.1 \text{ cm} ^2 = 10 \text{ cm} ^2   \\
   \end{align*}
+  Therefore our final result is 
+  \[
+   A = (15.3 \pm 0.1) \times 10^{2} \text{ cm}^2 = 15.3 \pm 0.1 \text{ dm}^2
+  \]
+  
+  \item \textbf{Powers}
+  
+  If you are dealing with powers, the relative error of $Z = X^n$ is just the relative error of $X$ multiplied by the absolute value of the
+  exponent n ( n does not have to
+  be positive or even an integer).
+  
+  \[
+   \frac{\Delta Z}{Z} = |n| \times \frac{\Delta X}{X}
+  \]
+
+  
 
   
   

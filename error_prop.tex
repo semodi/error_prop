@@ -63,11 +63,11 @@ Let $x_i$ denote the different measurement outcomes ($i$ is just an index to lab
  \textit{TIP: In Excel you can use the AVERAGE(data) function}
  \item The \textbf{standard error} or the error of the average is then given by
  \[
-  \Delta \overline{x} = \sqrt{ \frac{\sum_i (x_i - \overline{x})^2}{N(N+1)}}
+  \Delta \overline{x} = \sqrt{ \frac{\sum_i (x_i - \overline{x})^2}{N(N-1)}}
  \]
  for our example
  \[
-  \Delta \overline{l} = \sqrt{\frac{(50.1-50.2)^2 + (50.2 - 50.2)^2 + ... + (50.5-50.2)^2}{20}} \text{ cm} = 0.11 \text{ cm}
+  \Delta \overline{l} = \sqrt{\frac{(50.1-50.2)^2 + (50.2 - 50.2)^2 + ... + (50.5-50.2)^2}{12}} \text{ cm} = 0.11 \text{ cm}
  \]
  The standard error gives you information about how likely it is that your measured \textbf{mean value} is close to the \textbf{true value}. 
  For example, in our experiment the true length of the table is between $50.1$ cm and $50.3$ cm (i.e. the mean value $\pm$ the standard error)
